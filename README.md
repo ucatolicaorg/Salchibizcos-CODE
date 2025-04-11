@@ -30,6 +30,7 @@ Este conjunto de comandos configura un stack mern completo para:
   - Enrutamiento con React Router
   - Configuración CORS para comunicación entre frontend y backend
 <br/>
+
 1. Backend y dependencias base
 
         npm install mongodb express cors
