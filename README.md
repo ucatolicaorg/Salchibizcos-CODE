@@ -1,5 +1,9 @@
 # Ejecución del proyecto
 
+## Índice
+*[Requisitos](#Requisitos)
+*[Comandos](#Comandos)
+
 ## Requisitos
 
 - Node.js
@@ -12,8 +16,8 @@
 
         npm -v
         git -v
-    
-    En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
+    > [!TIP]
+    > En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
     
 
 ## Comandos
@@ -24,8 +28,7 @@ Este conjunto de comandos configura un stack mern completo para:
   - Estilos con Tailwind CSS
   - Enrutamiento con React Router
   - Configuración CORS para comunicación entre frontend y backend
-
-
+<br/>
 1. Backend y dependencias base
 
         npm install mongodb express cors
@@ -77,3 +80,8 @@ Este conjunto de comandos configura un stack mern completo para:
     - **react-router-dom**: Biblioteca de enrutamiento para React (v6.x)
     - Permite crear navegación entre componentes/páginas
     - (Nota: Aunque se usa ```-D```, normalmente sería dependencia regular)
+
+
+<h4 align="center">
+:construction: Proyecto en construcción :construction:
+</h4>
