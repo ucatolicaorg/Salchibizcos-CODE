@@ -20,7 +20,7 @@ Ejecución del proyecto
 **Comandos**
 Este conjunto de comandos configura un stack mern.
 
-1. **Backend y dependencias base**
+1. Backend y dependencias base
 
         npm install mongodb express cors
 
@@ -28,7 +28,7 @@ Este conjunto de comandos configura un stack mern.
     - **express**: Framework web para Node.js (para crear APIs y servidores web)
     - **cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing)
 
-2. **Creación de frontend con Vite + React**
+2. Creación de frontend con Vite + React
 
         npm create vite@latest client -- --template 
 
@@ -36,7 +36,7 @@ Este conjunto de comandos configura un stack mern.
     - Nombre del proyecto: `client`
     - Usa la plantilla oficial de React
 
-3. **Instalar dependencias del frontend**
+3. Instalar dependencias del frontend
 
         cd client
         npm install
@@ -47,7 +47,7 @@ Este conjunto de comandos configura un stack mern.
         - @vitejs/plugin-react
         - etc.
 
-4. **Configuración de Tailwind CSS**
+4. Configuración de Tailwind CSS
 
         npm install -D tailwindcss postcss autoprefixer
 
@@ -56,7 +56,7 @@ Este conjunto de comandos configura un stack mern.
     - **autoprefixer**: Plugin para agregar prefijos de vendedores CSS
     - ```-D```: Instala como dependencias de desarrollo
 
-5. **Inicializar Tailwind**
+5. Inicializar Tailwind
 
         npx tailwindcss init -p
 
@@ -64,7 +64,7 @@ Este conjunto de comandos configura un stack mern.
     - ```-p```: Crea también ```postcss.config.js```
     - Configura la integración con PostCSS
 
-6. **React Router (enrutamiento)**
+6. React Router (enrutamiento)
 
         npm install -D react-router-dom
 
