@@ -10,10 +10,16 @@ Ubicados en la carpeta ```server```
 
 - **conection.js** Creamos una carpeta bajo el directorio del servidor llamada db y dentro de ella, un archivo llamado ```connection.js```. Allí el código servirá para conectarnos a nuestra base de datos.
 
+- **record.js** Base de datos terminada. Servidor hecho. Ahora, es el momento de los endpoints de la API. Empecemos creando una carpeta de rutas y añadiendo ```record.js``` en ella.
+
 **Fronted**
 
 Ubicados en la carpeta ```client```
 
+- **tailwind.config.js** Hay algunas dependencias adicionales que se utilizarán en nuestro proyecto. Empezaremos con el ```CSS``` de ```Tailwind```. Editaremos el campo de contenido en el archivo ```tailwind.config.```
+
 Ubicados en la carpeta ```src``` dentro de la carpeta ```client```
+
+- **index css** En el archivo ```src/index.css```, tenemos que añadir las directivas Tailwind y eliminar todo lo demás.
 
 Ubicados en la carpeta ```components``` dentro de la carpeta ```src``` dentro de la carpeta ```client```
