@@ -4,9 +4,10 @@ Archivos modificados en el proyecto
 
 Ubicados en la carpeta ```served```
 
-
 **Fronted**
 
 Ubicados en la carpeta ```client```
 
 Ubicados en la carpeta ```src``` dentro de la carpeta ```client```
+
+Ubicados en la carpeta ```components``` dentro de la carpeta ```src``` dentro de la carpeta ```client```
