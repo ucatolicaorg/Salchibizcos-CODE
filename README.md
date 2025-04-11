@@ -18,8 +18,14 @@ Ubicados en la carpeta ```client```
 
 - **tailwind.config.js** Hay algunas dependencias adicionales que se utilizarán en nuestro proyecto. Empezaremos con el ```CSS``` de ```Tailwind```. Editaremos el campo de contenido en el archivo ```tailwind.config.```
 
+- *index.html* En el archivo index.html, se realizan modificaciones en el HTML como lo puede ser el titulo del frontend.
+
 Ubicados en la carpeta ```src``` dentro de la carpeta ```client```
 
 - **index css** En el archivo ```src/index.css```, tenemos que añadir las directivas Tailwind y eliminar todo lo demás.
 
 Ubicados en la carpeta ```components``` dentro de la carpeta ```src``` dentro de la carpeta ```client```
+
+- *Navbar.jsx* En el componente navbar.js, crearemos una barra de navegación que nos enlazará con los componentes necesarios.
+
+- *Recordlist.jsx* Este código servirá como componente de visualización de nuestros registros. Obtendrá todos los registros de nuestra base de datos a través de un método GET.
