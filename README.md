@@ -1,7 +1,6 @@
-Ejecución del proyecto
----
+# Ejecución del proyecto
 
-**Requisitos**
+## Requisitos
 
 - Node.js
 
@@ -17,7 +16,7 @@ Ejecución del proyecto
     En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
     
 
-**Comandos**
+## Comandos
 
 Este conjunto de comandos configura un stack mern completo para:
   - Backend Node.js/Express con MongoDB
@@ -27,7 +26,7 @@ Este conjunto de comandos configura un stack mern completo para:
   - Configuración CORS para comunicación entre frontend y backend
 
 
-**1.** Backend y dependencias base
+1. Backend y dependencias base
 
         npm install mongodb express cors
 
@@ -35,7 +34,7 @@ Este conjunto de comandos configura un stack mern completo para:
     - **express**: Framework web para Node.js (para crear APIs y servidores web)
     - **cors**: Middleware para habilitar CORS (Cross-Origin Resource Sharing)
 
-**2.** Creación de frontend con Vite + React
+2. Creación de frontend con Vite + React
 
         npm create vite@latest client -- --template 
 
@@ -43,7 +42,7 @@ Este conjunto de comandos configura un stack mern completo para:
     - Nombre del proyecto: `client`
     - Usa la plantilla oficial de React
 
-**3.** Instalar dependencias del frontend
+3. Instalar dependencias del frontend
 
         cd client
         npm install
@@ -54,7 +53,7 @@ Este conjunto de comandos configura un stack mern completo para:
         - @vitejs/plugin-react
         - etc.
 
-**4.** Configuración de Tailwind CSS
+4. Configuración de Tailwind CSS
 
         npm install -D tailwindcss postcss autoprefixer
 
@@ -63,7 +62,7 @@ Este conjunto de comandos configura un stack mern completo para:
     - **autoprefixer**: Plugin para agregar prefijos de vendedores CSS
     - ```-D```: Instala como dependencias de desarrollo
 
-**5.** Inicializar Tailwind
+5. Inicializar Tailwind
 
         npx tailwindcss init -p
 
@@ -71,7 +70,7 @@ Este conjunto de comandos configura un stack mern completo para:
     - ```-p```: Crea también ```postcss.config.js```
     - Configura la integración con PostCSS
 
-**6.** React Router (enrutamiento)
+6. React Router (enrutamiento)
 
         npm install -D react-router-dom
 
