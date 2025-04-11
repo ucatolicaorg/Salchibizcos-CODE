@@ -1,8 +1,8 @@
 # Ejecución del proyecto
 
 ## Índice
-*[Requisitos](#Requisitos)
-*[Comandos](#Comandos)
+- [Requisitos](#Requisitos)
+- [Comandos](#Comandos)
 
 ## Requisitos
 
@@ -16,8 +16,9 @@
 
         npm -v
         git -v
-    > [!TIP]
-    > En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
+
+> [!TIP]
+> En algunos casos ```npm``` no esta configurado como scripts de PowerShell firmados, en esos casos es necesario ejecutar la terminal como administrador para ejecutar scripts de PowerShell no firmados, mediante ```Set-ExecutionPolicy RemoteSigned```, seleccionando ```si```.
     
 
 ## Comandos
