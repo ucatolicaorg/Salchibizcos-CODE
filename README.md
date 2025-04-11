@@ -20,11 +20,11 @@ Ejecución del proyecto
 **Comandos**
 
 Este conjunto de comandos configura un stack mern completo para:
-- Backend Node.js/Express con MongoDB
-- Frontend React con Vite
-- Estilos con Tailwind CSS
-- Enrutamiento con React Router
-- Configuración CORS para comunicación entre frontend y backend
+    - Backend Node.js/Express con MongoDB
+    - Frontend React con Vite
+    - Estilos con Tailwind CSS
+    - Enrutamiento con React Router
+    - Configuración CORS para comunicación entre frontend y backend
 
 
 1. Backend y dependencias base
