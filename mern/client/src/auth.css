@@ -1,0 +1,134 @@
+/* client/src/auth.css */
+
+/* 1. Contenedor de toda la página */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f5f9;
+}
+
+/* 2. Ajuste del root de React */
+#root {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* 3. Caja blanca donde va el login */
+.auth-container {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+  position: relative;
+  min-height: 480px;
+  box-sizing: border-box;
+}
+
+/* 4. Avatar circular */
+.user-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 5. Layout del formulario */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: 100%;
+}
+
+/* 6. Agrupador de cada input */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+/* 7. Campos con padding para el ojo */
+.input-field {
+  width: 100%;
+  padding: 12px 48px 12px 16px; /* espacio a la derecha */
+  border: 2px solid #e0d0e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8f5f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #b948ea;
+  box-shadow: 0 0 0 3px rgba(185, 72, 234, 0.2);
+}
+
+/* 8. Botón ojo siempre encima */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b948ea;              /* fill via currentColor */
+}
+.password-toggle:hover {
+  color: #9a35c7;
+}
+
+/* 9. Botón de acción */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background: #b948ea !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+.auth-button:hover {
+  background: #9a35c7;
+}
+
+/* 10. Enlace de registro */
+.switch-form {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+.switch-link {
+  color: #b948ea;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+/* 11. Título */
+.auth-container h2 {
+  text-align: center;
+  margin: 0 0 1.5rem;
+  color: #333;
+  font-size: 1.65rem;
+  font-weight: 800;
+}

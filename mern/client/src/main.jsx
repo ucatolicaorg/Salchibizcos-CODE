@@ -1,45 +1,32 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
+
 import App from "./App";
-import Record from "./components/Record";
-import RecordList from "./components/RecordList";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import UserList from "./components/UserList";
+import Profile from "./components/Profile";
+
 import "./index.css";
+import "./auth.css";
 
 const router = createBrowserRouter([
+  { path: "/", element: <Login /> },
+  { path: "/register", element: <Register /> },
   {
-    path: "/",
+    path: "/users",
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <RecordList />,
-      },
+      { index: true, element: <UserList /> },
+      { path: ":id", element: <Profile /> },
     ],
   },
-  {
-    path: "/edit/:id",
-    element: <App />,
-    children: [
-      {
-        path: "/edit/:id",
-        element: <Record />,
-      },
-    ],
-  },
-  {
-    path: "/create",
-    element: <App />,
-    children: [
-      {
-        path: "/create",
-        element: <Record />,
-      },
-    ],
-  },
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
