@@ -21,6 +21,6 @@ try {
   console.error(err);
 }
 
-let db = client.db("users");
+let db = client.db("Prograthon");
 
 export default db;

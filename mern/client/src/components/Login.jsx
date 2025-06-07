@@ -1,101 +1,139 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../api";
-import "../auth.css";
+import { login } from "../api";
+import "./Login.css";
 
-export default function Login() {
-  const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [showPwd, setShowPwd] = useState(false);
-  const [err, setErr] = useState("");
+const Login = ({ onLogin, onSwitchToRegister }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) =>
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    if (error) setError("");
+  };
 
-  const togglePwd = () => setShowPwd((p) => !p);
-
-  const handleLoginClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.email || !formData.password) {
+      setError("Por favor completa todos los campos");
+      return;
+    }
+
     try {
-      await auth.login({ email: form.email, password: form.password });
-      navigate("/users");
-    } catch (error) {
-      setErr(error.message);
+      setLoading(true);
+      setError("");
+      const response = await login(formData);
+      if (response.role) {
+        await onLogin();
+      }
+    } catch (err) {
+      setError(err.message || "Error al iniciar sesión");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="auth-container">
-      <form className="auth-form" onSubmit={handleLoginClick}>
+    <div className="login-container">
+      {/* TITULO “PROGRATHON” centrado entre ambas mitades */}
+      <div className="login-title">
+        <h1>PROGRATHON</h1>
+      </div>
+
+      {/* PANEL IZQUIERDO: Degradado púrpura + ilustración */}
+      <div className="login-left">
         <img
-          src="https://i.imgur.com/MKpzI59.jpeg"
-          className="user-avatar"
-          alt="Avatar"
+          src="https://imgur.com/yxRapZk.png"
+          alt="Ilustración Login"
         />
-        <h2>Iniciar sesión</h2>
-        {err && <p style={{ color: "red", textAlign: "center" }}>{err}</p>}
-        <input
-          name="email"
-          type="email"
-          className="input-field"
-          placeholder="Correo electrónico"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <div className="input-group">
-          <input
-            name="password"
-            type={showPwd ? "text" : "password"}
-            className="input-field"
-            placeholder="Contraseña"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-          <button
-            type="button"
-            className="password-toggle"
-            onClick={togglePwd}
-          >
-            {showPwd ? (
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+      </div>
+
+      {/* PANEL DERECHO: Formulario de Login (ahora ocupa todo el ancho de su mitad) */}
+      <div className="login-right">
+        <div className="auth-container glass-card animate-slide-in-up w-full mt-32 p-8">
+          {/* Logo circular de la página */}
+          <div className="text-center mb-6">
+            <img
+              src="https://i.imgur.com/MKpzI59.png"
+              alt="Logo de la Página"
+              className="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg"
+            />
+          </div>
+
+          {error && <div className="error-message mb-4">{error}</div>}
+
+          <form onSubmit={handleSubmit} className="space-y-6 px-8">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-base font-medium text-white mb-2"
               >
-                <path d="M1 12C2.73 7.61 6 4.5 12 4.5s9.27 3.11 11 7.5c-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12z" />
-                <circle cx="12" cy="12" r="2.5" />
-              </svg>
-            ) : (
-              <svg
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+                Correo Electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="glass-input"
+                placeholder="tu@ejemplo.com"
+                required
+                disabled={loading}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-base font-medium text-white mb-2"
               >
-                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 
-                  6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 
-                  17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8
-                  c-1.66 0-3 1.34-3 3s1.34 3 3 3"/></svg>
-            )}
-          </button>
+                Contraseña
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="glass-input"
+                placeholder="••••••••"
+                required
+                disabled={loading}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="glass-button w-full py-4 text-xl"
+            >
+              {loading ? <div className="loader"></div> : "Iniciar Sesión"}
+            </button>
+          </form>
+
+          <div className="text-center mt-8">
+            <p className="text-secondary text-sm">
+              ¿No tienes una cuenta?{" "}
+              <button
+                onClick={onSwitchToRegister}
+                className="switch-link text-lg"
+                disabled={loading}
+              >
+                Regístrate aquí
+              </button>
+            </p>
+          </div>
         </div>
-        <button type="submit" className="auth-button">
-          Iniciar sesión
-        </button>
-        <div className="switch-form">
-          <span
-            className="switch-link"
-            onClick={() => navigate("/register")}
-          >
-            ¿No tienes cuenta? Regístrate
-          </span>
-        </div>
-      </form>
+      </div>
     </div>
   );
-}
+};
+
+export default Login;

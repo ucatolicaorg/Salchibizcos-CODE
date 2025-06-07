@@ -1,134 +1,97 @@
 /* client/src/auth.css */
 
-/* 1. Contenedor de toda la página */
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f8f5f9;
+  background: linear-gradient(
+    135deg,
+    #1b1b2d 0%,
+    #181824 100%
+  );
+  color: #e0e7ff;
+  font-family: "Inter", sans-serif;
 }
 
-/* 2. Ajuste del root de React */
 #root {
   width: 100%;
   padding: 1rem;
 }
 
-/* 3. Caja blanca donde va el login */
 .auth-container {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 480px;
-  margin: auto;
-  position: relative;
-  min-height: 480px;
-  box-sizing: border-box;
+  @apply glass-card p-6 max-w-[480px] mx-auto;
 }
 
-/* 4. Avatar circular */
+/* Título */
+.auth-container h2 {
+  @apply text-2xl text-center font-bold mb-4 text-white;
+}
+
+/* Avatar solo en EditProfile */
 .user-avatar {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #5e00ff, #9b00ff);
   display: block;
   margin: 0 auto 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(94, 0, 255, 0.4);
 }
 
-/* 5. Layout del formulario */
+/* Formulario interno */
 .auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  height: 100%;
+  @apply space-y-4;
 }
 
-/* 6. Agrupador de cada input */
-.input-group {
-  position: relative;
-  width: 100%;
-}
-
-/* 7. Campos con padding para el ojo */
 .input-field {
-  width: 100%;
-  padding: 12px 48px 12px 16px; /* espacio a la derecha */
-  border: 2px solid #e0d0e6;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #f8f5f9;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
-.input-field:focus {
-  outline: none;
-  border-color: #b948ea;
-  box-shadow: 0 0 0 3px rgba(185, 72, 234, 0.2);
+  @apply glass-input;
 }
 
-/* 8. Botón ojo siempre encima */
-.password-toggle {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #b948ea;              /* fill via currentColor */
-}
-.password-toggle:hover {
-  color: #9a35c7;
+.auth-button,
+.btn-primary {
+  @apply w-full py-3 text-lg glass-button;
 }
 
-/* 9. Botón de acción */
-.auth-button {
-  width: 100%;
-  padding: 12px;
-  background: #b948ea !important;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 0.5rem;
-}
-.auth-button:hover {
-  background: #9a35c7;
-}
-
-/* 10. Enlace de registro */
-.switch-form {
-  text-align: center;
-  padding: 1rem 0 0.5rem;
-}
+/* Enlace de cambio de formulario */
 .switch-link {
-  color: #b948ea;
+  color: #a3aed0;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
   text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.switch-link:hover {
+  color: #d4d7df;
 }
 
-/* 11. Título */
-.auth-container h2 {
-  text-align: center;
-  margin: 0 0 1.5rem;
-  color: #333;
-  font-size: 1.65rem;
-  font-weight: 800;
+/* Mensajes de error / éxito */
+.error-message {
+  @apply bg-[#3f1a1a] border border-[#7a0000] rounded-lg px-3 py-2 text-sm text-[#ffb3b3] mb-2;
+}
+.success-message {
+  @apply bg-[#1a3f24] border border-[#007a33] rounded-lg px-3 py-2 text-sm text-[#a3f7d0] mb-2;
+}
+
+/* Loader circular */
+.loader {
+  border: 3px solid transparent;
+  border-top: 3px solid #e0e7ff;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Textos secundarios */
+.text-secondary {
+  color: #a3aed0;
 }
